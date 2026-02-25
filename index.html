@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPTECH | OUR SHS JOURNEY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            font-family: 'Sora', sans-serif;
+            color: white;
+            overflow: hidden; 
+        }
+
+        .section-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+
+        #fixed-bg-1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('adp bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px); 
+            transform: scale(1.1); 
+            z-index: 1;
+        }
+
+        #fixed-bg-2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('adp 2nd bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px); 
+            transform: scale(1.1); 
+            z-index: 1;
+        }
+		
+       #fixed-bg-3 {
+		   position: fixed;
+		   top: 0;
+		   left: 0;
+		   width: 100%;
+		   height: 100%;
+		   background-image: url('adp 3rd bg.jpg'); 
+		   background-size: cover;
+		   background-position: center;
+		   filter: blur(20px); 
+		   transform: scale(1.1); 
+		   z-index: 1;
+	   }
+	   
+	   #fixed-bg-4 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('adp 4th bg.jpg'); 
+		background-size: cover;
+		background-position: center;
+		filter: blur(20px); 
+		transform: scale(1.1); 
+		z-index: 1;
+		}
+		
+		#fixed-bg-5 {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('adp 5th bg.jpg');
+			background-size: cover;
+			background-position: center;
+			filter: blur(20px); 
+			transform: scale(1.1); 
+			z-index: 1;
+		}
+			
+		#fixed-bg-6 {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('adp 6th bg.jpg'); 
+			background-size: cover;
+			background-position: center;
+			filter: blur(20px); 
+			transform: scale(1.1); 
+			z-index: 1;
+		}
+	   
+	   #section-3 {
+	   opacity: 0;
+	   pointer-events: none;
+	   transform: scale(0.9);
+	   }
+	   
+	   #section-4 {
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(0.9);
+		}
+		
+	   #section-5 {
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(0.9);
+		}
+		
+		#section-6 {
+			opacity: 0;
+			pointer-events: none;
+			transform: scale(0.9);
+		}
+
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s;
+        }
+
+        #school-logo {
+            width: 300px;
+            height: auto;
+            opacity: 0;
+            animation: introSequence 4s ease-in-out forwards;
+        }
+
+        @keyframes introSequence {
+            0% { transform: scale(0.2) rotateY(0deg); opacity: 0; }
+            25% { transform: scale(1) rotateY(720deg); opacity: 1; }
+            50% { transform: scale(1) rotateY(720deg); opacity: 1; filter: drop-shadow(0 0 30px #fff); }
+            100% { transform: scale(0) rotateY(1440deg); opacity: 0; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        #section-2 .content-wrapper {
+            justify-content: flex-start;
+            padding-top: 10vh;
+        }
+
+        .reveal { opacity: 1 !important; }
+
+        .title-container {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .main-title {
+            font-size: clamp(1.5rem, 5vw, 3.2rem); 
+            font-weight: 800;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: #ffffff;
+            animation: cinematicFocus 6s ease-in-out infinite;
+        }
+
+        @keyframes cinematicFocus {
+            0%, 100% { filter: blur(0px); opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+            50% { filter: blur(3px); opacity: 0.7; text-shadow: 0 0 0px rgba(255,255,255,0); }
+        }
+
+        .sub-title {
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            letter-spacing: 6px;
+            color: rgba(255, 255, 255, 0.7); 
+            margin-top: 5px; 
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .button-container {
+            margin-top: 60px; 
+            display: flex;
+            gap: 50px; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .adp-button {
+            width: 130px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+        }
+
+        .adp-button:hover { transform: scale(1.15) rotate(2deg); }
+        .btn-1:hover { filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(0 15px 25px #8dc1d9); }
+        .btn-2:hover { filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(0 15px 25px #9e94d9); }
+        .btn-3:hover { filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(0 15px 25px #a80905); }
+        .btn-4:hover { filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(0 15px 25px #fed6df); }
+		.btn-5:hover { filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(0 15px 25px #e2e1a0); }
+
+        .adp-button:active { transform: scale(0.95); }
+
+        .folder-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .folder-btn {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            filter: drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white);
+        }
+
+        .folder-btn:hover {
+            transform: translateY(-10px) scale(1.1);
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.8)) drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+        }
+
+        .kz-gif {
+            margin: 30px 0; 
+            width: 70%;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #8dc1d9;
+            border-radius: 8px;
+		
+        }
+		
+		#section-3 .kz-gif {
+			border: 4px solid #9e94d9;
+		}
+		
+		#section-4 .kz-gif {
+			border: 4px solid #a80905;
+		}
+		
+		#section-5 .kz-gif {
+			border: 4px solid #fed6df;
+		}
+
+		#section-6 .kz-gif {
+			border: 4px solid #e2e1a0;
+		}
+
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 30px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            background-color: transparent;
+            border: 1.5px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #8dc1d9;
+            box-shadow: 0 0 15px #8dc1d9;
+        }
+		
+		#section-3 .back-btn:hover {
+			border-color: #9e94d9;
+			box-shadow: 0 0 15px #9e94d9;
+		}
+		
+		#section-4 .back-btn:hover {
+			border-color: #a80905;
+			box-shadow: 0 0 15px #a80905;
+		}
+		
+		#section-5 .back-btn:hover {
+			border-color: #fed6df;
+			box-shadow: 0 0 15px #fed6df;
+		}
+		
+		#section-6 .back-btn:hover {
+			border-color: #e2e1a0;
+			box-shadow: 0 0 15px #e2e1a0;
+		}
+		
+        #paper-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease-in-out;
+            backdrop-filter: blur(8px);
+        }
+
+        #paper-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-image {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            transform: scale(0.6);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+
+        #paper-popup.active .popup-image {
+            transform: scale(1);
+        }
+
+        #section-2 {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.9);
+        }
+
+        .exit-active {
+            opacity: 0 !important;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .enter-active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+            pointer-events: all !important;
+        }
+
+        .fade-away {
+            opacity: 0 !important;
+            visibility: hidden;
+            pointer-events: none;
+        }
+		
+		.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.audio-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+
+			display: flex;
+			align-items: center;
+			gap: 10px;
+
+			padding: 8px 18px 8px 8px;
+
+			background: transparent;
+			border: 1px solid white;
+			border-radius: 999px;
+
+			color: white;
+			font-family: inherit;
+			cursor: pointer;
+
+			backdrop-filter: blur(6px);
+
+			transition: all 0.3s ease;
+			z-index: 9999;
+		}
+
+		.audio-btn:hover {
+			box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+			transform: translateY(-2px);
+		}
+
+		.audio-btn.section-mode {
+			top: 20px;
+			right: 30px;
+			bottom: auto;
+		}
+		
+		.audio-circle {
+			width: 32px;
+			height: 32px;
+
+			background: #fdeb9e;
+			border-radius: 50%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			font-size: 14px;
+			font-weight: bold;
+			color: black;
+
+			transition: transform 0.3s ease;
+		}
+
+		.audio-btn:hover .audio-circle {
+			transform: scale(1.08);
+		}
+		</style>
+	</head>
+	<body>
+
+	<div id="intro-overlay">
+		<img src="adp logo.png" id="school-logo" alt="ADP Logo">
+	</div>
+	
+
+    <div id="paper-popup">
+        <img src="adp paper.png" class="popup-image" id="popup-img" alt="Paper Content">
+    </div>
+
+    <div id="section-1" class="section-wrapper">
+        <div id="fixed-bg-1"></div>
+        <div id="main-content" class="content-wrapper">
+            <div class="title-container">
+                <h1 class="main-title">THE FINAL CHAPTER</h1>
+                <p class="sub-title" style="color: #f3a5bc;">Divergent Paths. One Shared Story.</p>
+            </div>
+
+            <div class="button-container">
+                <img src="adp button 1.png" class="adp-button btn-1" id="start-journey" alt="B1">
+                <img src="adp button 2.png" class="adp-button btn-2" alt="B2">
+                <img src="adp button 3.png" class="adp-button btn-3" alt="B3">
+                <img src="adp button 4.png" class="adp-button btn-4" alt="B4">
+				<img src="adp button 5.png" class="adp-button btn-5" alt="B5">
+            </div>
+        </div>
+    </div>
+
+    <div id="section-2" class="section-wrapper">
+        <div id="fixed-bg-2"></div>
+        <div class="content-wrapper reveal">
+            <div class="title-container">
+                <h1 class="main-title" style="font-size: 2.5rem;">KIZZIE’S JOURNEY</h1>
+                <p class="sub-title">READY TO FIND OUT MORE?</p>
+            </div>
+
+            <img src="adp kz gif.gif" class="kz-gif" alt="KZ GIF">
+
+            <div class="folder-container">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger" alt="Folder 1">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-2" alt="Folder 2">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-3" alt="Folder 3">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-4" alt="Folder 4">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-5" alt="Folder 5">
+            </div>
+
+            <div class="folder-container" style="margin-top: 20px;">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-6" alt="Folder 6">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-7" alt="Folder 7">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-8" alt="Folder 8">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-9" alt="Folder 9">
+                <img src="adp folder 1.png" class="folder-btn" id="folder-trigger-10" alt="Folder 10">
+            </div>
+
+            <button id="back-to-main" class="back-btn">Back</button>
+
+        </div>
+    </div>
+	
+	<div id="section-3" class="section-wrapper">
+    <div id="fixed-bg-3"></div>
+    <div class="content-wrapper reveal">
+        <div class="title-container">
+            <h1 class="main-title" style="font-size: 2.5rem;">ASHLEY’S JOURNEY</h1>
+            <p class="sub-title">READY TO FIND OUT MORE?</p>
+        </div>
+
+        <img src="adp ash gif.gif" class="kz-gif" alt="Ashley GIF">
+		
+	<div class="folder-container">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-1" alt="Folder 1">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-2" alt="Folder 2">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-3" alt="Folder 3">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-4" alt="Folder 4">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-5" alt="Folder 5">
+	</div>
+
+	<div class="folder-container" style="margin-top: 20px;">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-6" alt="Folder 6">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-7" alt="Folder 7">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-8" alt="Folder 8">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-9" alt="Folder 9">
+		<img src="adp folder 2.png" class="folder-btn" id="folder3-10" alt="Folder 10">
+	</div>
+
+	<button id="back-to-main-2" class="back-btn">Back</button>
+	   </div>
+	</div>
+	
+	<div id="section-4" class="section-wrapper">
+		<div id="fixed-bg-4"></div>
+		<div class="content-wrapper reveal">
+			<div class="title-container">
+				<h1 class="main-title" style="font-size: 2.5rem;">REIGNE’S JOURNEY</h1>
+				<p class="sub-title">READY TO FIND OUT MORE?</p>
+			</div>
+
+			<img src="adp reigne gif.gif" class="kz-gif" alt="Reigne GIF">
+
+			<div class="folder-container">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-1" alt="Folder 1">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-2" alt="Folder 2">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-3" alt="Folder 3">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-4" alt="Folder 4">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-5" alt="Folder 5">
+			</div>
+
+			<div class="folder-container" style="margin-top: 20px;">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-6" alt="Folder 6">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-7" alt="Folder 7">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-8" alt="Folder 8">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-9" alt="Folder 9">
+				<img src="adp folder 3.png" class="folder-btn" id="folder4-10" alt="Folder 10">
+			</div>
+
+			<button id="back-to-main-3" class="back-btn">Back</button>
+		</div>
+	</div>
+	
+	<div id="section-5" class="section-wrapper">
+		<div id="fixed-bg-5"></div>
+		<div class="content-wrapper reveal">
+			<div class="title-container">
+				<h1 class="main-title" style="font-size: 2.5rem;">REMIGIO’S JOURNEY</h1>
+				<p class="sub-title">READY TO FIND OUT MORE?</p>
+			</div>
+
+			<img src="adp memel gif.gif" class="kz-gif" alt="Remigio GIF">
+
+			<div class="folder-container">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-1" alt="Folder 1">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-2" alt="Folder 2">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-3" alt="Folder 3">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-4" alt="Folder 4">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-5" alt="Folder 5">
+			</div>
+
+			<div class="folder-container" style="margin-top: 20px;">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-6" alt="Folder 6">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-7" alt="Folder 7">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-8" alt="Folder 8">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-9" alt="Folder 9">
+				<img src="adp folder 4.png" class="folder-btn" id="folder5-10" alt="Folder 10">
+			</div>
+
+			<button id="back-to-main-4" class="back-btn">Back</button>
+		</div>
+	</div>
+	
+	<div id="section-6" class="section-wrapper">
+		<div id="fixed-bg-6"></div>
+		<div class="content-wrapper reveal">
+			<div class="title-container">
+				<h1 class="main-title" style="font-size: 2.5rem;">REEHANNA’S JOURNEY</h1>
+				<p class="sub-title">READY TO FIND OUT MORE?</p>
+			</div>
+
+			<img src="adp hanna gif.gif" class="kz-gif" alt="Hanna GIF">
+
+			<div class="folder-container">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-1" alt="Folder 1">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-2" alt="Folder 2">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-3" alt="Folder 3">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-4" alt="Folder 4">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-5" alt="Folder 5">
+			</div>
+
+			<div class="folder-container" style="margin-top: 20px;">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-6" alt="Folder 6">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-7" alt="Folder 7">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-8" alt="Folder 8">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-9" alt="Folder 9">
+				<img src="adp folder 5.png" class="folder-btn" id="folder6-10" alt="Folder 10">
+			</div>
+
+			<button id="back-to-main-5" class="back-btn">Back</button>
+		</div>
+	</div>
+	
+	<audio id="bgAudio" loop></audio>
+
+	<button id="audioControl" class="audio-btn hidden">
+		<span class="audio-circle">▶</span>
+		<span class="audio-text">PLAY THEME</span>
+	</button>
+
+	<script>
+	window.addEventListener('load', () => {
+	const intro = document.getElementById('intro-overlay');
+	const main = document.getElementById('main-content');
+
+	setTimeout(() => {
+		intro.classList.add('fade-away');
+		document.getElementById("audioControl").classList.remove("hidden");
+		main.classList.add('reveal');
+
+		switchTrack("main"); 
+		audioBtn.classList.remove("section-mode");
+	}, 4000);
+	});
+
+    const section1 = document.getElementById('section-1');
+    const section2 = document.getElementById('section-2');
+    const section3 = document.getElementById('section-3');
+
+    const trigger1 = document.getElementById('start-journey'); 
+    const trigger2 = document.querySelector('.btn-2');
+
+    trigger1.addEventListener('click', () => {
+        section1.classList.add('exit-active');
+        section2.classList.add('enter-active');
+		
+		switchTrack("sec2");
+		audioBtn.classList.add("section-mode");
+    });
+
+    trigger2.addEventListener('click', () => {
+        section1.classList.add('exit-active');
+        section3.classList.add('enter-active');
+		
+		switchTrack("sec3");
+		audioBtn.classList.add("section-mode");
+    });
+
+    const folderBtn = document.getElementById('folder-trigger');
+    const folderBtn2 = document.getElementById('folder-trigger-2');
+    const folderBtn3 = document.getElementById('folder-trigger-3');
+    const folderBtn4 = document.getElementById('folder-trigger-4');
+    const folderBtn5 = document.getElementById('folder-trigger-5');
+    const folderBtn6 = document.getElementById('folder-trigger-6');
+    const folderBtn7 = document.getElementById('folder-trigger-7');
+    const folderBtn8 = document.getElementById('folder-trigger-8');
+    const folderBtn9 = document.getElementById('folder-trigger-9');
+    const folderBtn10 = document.getElementById('folder-trigger-10');
+
+	for (let i = 1; i <= 10; i++) {
+		const folder = document.getElementById(`folder3-${i}`);
+		folder.addEventListener('click', () => {
+			popupImg.src = `adp paper ${i + 10}.png`;
+			paperPopup.classList.add('active');
+		});
+	}
+
+    const paperPopup = document.getElementById('paper-popup');
+    const popupImg = document.getElementById('popup-img');
+
+    folderBtn.addEventListener('click', () => {
+        popupImg.src = "adp paper.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn2.addEventListener('click', () => {
+        popupImg.src = "adp paper 2.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn3.addEventListener('click', () => {
+        popupImg.src = "adp paper 3.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn4.addEventListener('click', () => {
+        popupImg.src = "adp paper 4.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn5.addEventListener('click', () => {
+        popupImg.src = "adp paper 5.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn6.addEventListener('click', () => {
+        popupImg.src = "adp paper 6.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn7.addEventListener('click', () => {
+        popupImg.src = "adp paper 7.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn8.addEventListener('click', () => {
+        popupImg.src = "adp paper 8.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn9.addEventListener('click', () => {
+        popupImg.src = "adp paper 9.png";
+        paperPopup.classList.add('active');
+    });
+    folderBtn10.addEventListener('click', () => {
+        popupImg.src = "adp paper 10.png";
+        paperPopup.classList.add('active');
+    });
+
+    paperPopup.addEventListener('click', () => {
+        paperPopup.classList.remove('active');
+    });
+
+    const backBtn = document.getElementById('back-to-main');
+    backBtn.addEventListener('click', () => {
+        section2.classList.remove('enter-active');
+        section1.classList.remove('exit-active');
+		
+		switchTrack("main");
+		audioBtn.classList.remove("section-mode");
+    });
+
+    const backBtn2 = document.getElementById('back-to-main-2');
+    backBtn2.addEventListener('click', () => {
+        section3.classList.remove('enter-active');
+        section1.classList.remove('exit-active');
+		
+		switchTrack("main");
+		audioBtn.classList.remove("section-mode");
+    });
+	
+	const section4 = document.getElementById('section-4');
+	const trigger3 = document.querySelector('.btn-3'); 
+
+	trigger3.addEventListener('click', () => {
+		section1.classList.add('exit-active');
+		section4.classList.add('enter-active');
+		
+		switchTrack("sec4");
+		audioBtn.classList.add("section-mode");
+	});
+
+	for (let i = 1; i <= 10; i++) {
+		const folder = document.getElementById(`folder4-${i}`);
+		if (!folder) continue; 
+
+		folder.addEventListener('click', () => {
+			popupImg.src = `adp paper ${i + 20}.png`; 
+			paperPopup.classList.add('active');
+			console.log("Opening paper:", `adp paper ${i + 20}.png`);
+		});
+	}
+
+	const backBtn3 = document.getElementById('back-to-main-3');
+	backBtn3.addEventListener('click', () => {
+		section4.classList.remove('enter-active');
+		section1.classList.remove('exit-active');
+		
+		switchTrack("main");
+		audioBtn.classList.remove("section-mode");
+	});
+	
+	const section5 = document.getElementById('section-5');
+	const trigger4 = document.querySelector('.btn-4'); 
+	trigger4.addEventListener('click', () => {
+		section1.classList.add('exit-active');
+		section5.classList.add('enter-active');
+		
+		switchTrack("sec5");
+		audioBtn.classList.add("section-mode");
+	});
+	
+	const trigger5 = document.querySelector('.btn-5');
+	const section6 = document.getElementById('section-6');
+
+	trigger5.addEventListener('click', () => {
+		document.getElementById('section-1').classList.add('exit-active');
+		section6.classList.add('enter-active');
+		
+		switchTrack("sec6");
+		audioBtn.classList.add("section-mode");
+	});
+
+	for (let i = 1; i <= 10; i++) {
+		const folder = document.getElementById(`folder5-${i}`);
+		if (!folder) continue;
+
+		folder.addEventListener('click', () => {
+			popupImg.src = `adp paper ${i + 30}.png`; 
+			paperPopup.classList.add('active');
+			console.log("Opening paper:", `adp paper ${i + 30}.png`); 
+		});
+	}
+	
+	for (let i = 1; i <= 10; i++) {
+		const folder = document.getElementById(`folder6-${i}`);
+		if (!folder) continue;
+
+		folder.addEventListener('click', () => {
+			popupImg.src = `adp paper ${i + 40}.png`; 
+			paperPopup.classList.add('active');
+			console.log("Opening paper:", `adp paper ${i + 40}.png`);
+		});
+	}			
+	
+	const backBtn4 = document.getElementById('back-to-main-4');
+	backBtn4.addEventListener('click', () => {
+		section5.classList.remove('enter-active');
+		section1.classList.remove('exit-active');
+		
+		switchTrack("main");
+		audioBtn.classList.remove("section-mode");
+	});
+	
+		const backBtn5 = document.getElementById('back-to-main-5');
+	backBtn5.addEventListener('click', () => {
+		section6.classList.remove('enter-active');
+		section1.classList.remove('exit-active');
+
+		switchTrack("main");
+		audioBtn.classList.remove("section-mode");
+	});
+	
+	const audio = document.getElementById("bgAudio");
+	const audioBtn = document.getElementById("audioControl");
+
+	let audioUnlocked = false;
+	let currentTrack = null;
+
+	const tracks = {
+		main: "adp audio 1.mp3",
+		sec2: "adp audio 2.mp3",
+		sec3: "adp audio 3.mp3",
+		sec4: "adp audio 4.mp3",
+		sec5: "adp audio 5.mp3",
+		sec6: "adp audio 6.mp3"
+	};
+
+	function fadeOut(duration = 400) {
+		return new Promise(resolve => {
+			let fade = setInterval(() => {
+				if (audio.volume > 0.05) {
+					audio.volume -= 0.05;
+				} else {
+					clearInterval(fade);
+					audio.pause();
+					audio.volume = 1;
+					resolve();
+				}
+			}, duration / 20);
+		});
+	}
+
+	function fadeIn(track, duration = 400) {
+		audio.src = tracks[track];
+		audio.volume = 0;
+		audio.play();
+
+		let fade = setInterval(() => {
+			if (audio.volume < 0.95) {
+				audio.volume += 0.05;
+			} else {
+				clearInterval(fade);
+			}
+		}, duration / 20);
+
+		currentTrack = track;
+	}
+
+	async function switchTrack(track) {
+		if (!audioUnlocked) return;
+		if (currentTrack === track) return;
+
+		await fadeOut();
+		fadeIn(track);
+	}
+
+	audioBtn.addEventListener("click", () => {
+		const circle = audioBtn.querySelector(".audio-circle");
+		const text = audioBtn.querySelector(".audio-text");
+
+		if (!audioUnlocked) {
+			audioUnlocked = true;
+			fadeIn("main");
+
+			circle.textContent = "⏸";
+			text.textContent = "PAUSE";
+			return;
+		}
+
+		if (audio.paused) {
+			audio.play();
+			circle.textContent = "⏸";
+			text.textContent = "PAUSE";
+		} else {
+			audio.pause();
+			circle.textContent = "▶";
+			text.textContent = "PLAY";
+		}
+	});
+
+	</script>
+
+	</body>
+	</html>
